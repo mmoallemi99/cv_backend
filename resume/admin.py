@@ -3,12 +3,17 @@ from django.contrib.auth.models import Group
 
 from .models import Resume, Skill, Certificate, Project, Language, SocialMedia
 
+from jalali_date.admin import ModelAdminJalaliMixin
+from jalali_date.widgets import AdminDateWidget
+
 admin.site.unregister(Group)
 
 
 @admin.decorators.register(Resume)
-class ResumeAdmin(admin.ModelAdmin):
-    pass
+class ResumeAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
+    formfield_overrides = {
+        'birth_date': {'widget': AdminDateWidget},
+    }
     # list_display =
 
 

@@ -1,6 +1,5 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
-from django_jalali.db import models as jmodels
 
 from . import fields
 
@@ -9,7 +8,7 @@ class Resume(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     picture = models.ImageField()
-    birth_date = jmodels.jDateField()
+    birth_date = models.DateField()
     phone_number = PhoneNumberField()
     about = models.TextField(max_length=400, null=True, blank=True)
     LANGUAGES = (
@@ -39,7 +38,7 @@ class Certificate(models.Model):
     resume = models.ForeignKey(Resume, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     organization = models.CharField(max_length=50)
-    issue_date = jmodels.jDateField()
+    issue_date = models.DateField()
 
     def __str__(self):
         return '{organization} - {title}'.format(organization=self.organization, title=self.title)
@@ -50,7 +49,7 @@ class Project(models.Model):
     title = models.CharField(max_length=100)
     organization = models.CharField(max_length=50)
     description = models.TextField(max_length=300, blank=True, null=True)
-    date_completed = jmodels.jDateField()
+    date_completed = models.DateField()
     demo_link = models.CharField(max_length=150)
     skills_used = models.ManyToManyField(Skill)
 

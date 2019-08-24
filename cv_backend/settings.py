@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'djongo',
     'rest_framework',
     'phonenumber_field',
-    'django_jalali',
+    'jalali_date',
 
     # Project Apps
 
@@ -145,3 +145,23 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 PHONENUMBER_DB_FORMAT = 'NATIONAL'
 PHONENUMBER_DEFAULT_REGION = 'IR'
+
+JALALI_DATE_DEFAULTS = {
+   'Strftime': {
+        'date': '%y/%m/%d',
+        'datetime': '%H:%M:%S _ %y/%m/%d',
+    },
+    'Static': {
+        'js': [
+            # loading default jQuery
+            'admin/jquery.ui.datepicker.jalali/scripts/jquery-1.10.2.min.js',
+            # loading datepicker
+            'admin/js/django_jalali.min.js',
+        ],
+        'css': {
+            'all': [
+                'admin/jquery.ui.datepicker.jalali/themes/base/jquery-ui.min.css',
+            ]
+        }
+    },
+}
