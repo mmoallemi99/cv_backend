@@ -5,7 +5,7 @@ django-jalali-date==0.2.10
 django-phonenumber-field==3.0.1
 django-redis==4.10.0
 django-rest-framework==0.1.0
-djangorestframework==3.10.2
+djangorestframework==3.11.2
 djongo==1.2.33
 jdatetime==3.5.0
 phonenumbers==8.10.16
